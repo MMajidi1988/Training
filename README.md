@@ -1,54 +1,45 @@
-# Multi-GPU Training on YOLO
+Multi-GPU Training on YOLO README
+This script facilitates training YOLO (You Only Look Once) models using multiple GPUs. It integrates Comet ML for experiment tracking, Ultralytics YOLO and RTDETR for object detection, and tools for logging and monitoring GPU and CPU usage.
 
-This script is designed for the training of YOLO (You Only Look Once) models on multiple GPUs. It incorporates several utilities including Comet ML for experiment tracking, Ultralytics YOLO, and RTDETR for object detection, as well as utilities for logging and monitoring GPU and CPU usage.
 Features
+- Comet ML Integration for experiment tracking.
+- Automatic detection and utilization of multiple GPUs for training.
+- Performance metrics and hardware usage logging.
+- Flexibility in loading different YOLO model variants.
 
-    Comet ML Integration: Seamlessly track your experiments with Comet ML.
-    Multi-GPU Support: Automatically detects and utilizes available GPUs for training.
-    Performance Logging: Logs training performance metrics and hardware usage.
-    Dynamic Model Loading: Flexibly loads different YOLO model variants.
+Requirements
+Python 3.6+
+PyTorch
+Comet ML
+Ultralytics YOLO and RTDETR
+GPUtil, psutil, tqdm
 
-Prerequisites
+Install these libraries using pip:
 
-    Python 3.6+
-    PyTorch
-    Comet ML
-    Ultralytics YOLO and RTDETR
-    GPUtil, psutil
-    tqdm
+pip install torch comet_ml gputil psutil tqdm
 
-Installation
-
-    Clone the repository and navigate to the script's directory.
-    Install the required dependencies:
-
-    bash
-
-    pip install torch comet_ml gputil psutil tqdm
-
-    (Optional) Set up Comet ML by creating an account and obtaining an API key.
+Setup
+Set the `COMET_EVAL_LOG_CONFUSION_MATRIX` environment variable as needed.
+Configure your model paths and hyperparameters in `models_to_load` and `hyperparameters.json`, respectively.
 
 Usage
+Ensure models and `hyperparameters.json` are in the specified directory.
+Run the script in your Python environment:
 
-    Ensure you have the necessary models and hyperparameters.json file in the specified directory.
-    Set the COMET_EVAL_LOG_CONFUSION_MATRIX environment variable if needed.
-    Run the script:
-
-    bash
-
-    python [script_name].py
-
-Configuration
-
-    Model Paths: Edit the models_to_load dictionary in the script to specify the paths to your YOLO model files.
-    Hyperparameters: Modify hyperparameters.json to adjust training parameters.
+python [your_script_name].py
 
 Logging
+Training logs are recorded in `training_log.log`.
+CPU and GPU usage are monitored and logged.
+Training completion time is logged.
 
-    Training logs are saved in training_log.log.
-    Hardware usage (CPU and GPU) is logged during training.
-    Training duration is also logged upon completion.
+Contributions
+Contributions are welcome. Please fork this repository and submit a pull request with your changes.
 
-Contributing
+License
+This project is licensed under the MIT License.
 
-Feel free to fork this repository and contribute by submitting a pull request.
+Disclaimer
+This script is provided "as is", without warranty of any kind. Use at your own risk.
+
+Happy Coding! 🚀🤖
